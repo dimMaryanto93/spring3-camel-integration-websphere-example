@@ -1,6 +1,6 @@
-package com.maryanto.dimas.example.repository;
+package com.maryanto.dimas.webapp.example.repository;
 
-import com.maryanto.dimas.example.entity.Employee;
+import com.maryanto.dimas.webapp.example.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

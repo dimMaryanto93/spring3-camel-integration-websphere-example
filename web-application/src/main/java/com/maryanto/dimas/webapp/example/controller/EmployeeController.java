@@ -1,7 +1,7 @@
-package com.maryanto.dimas.example.controller;
+package com.maryanto.dimas.webapp.example.controller;
 
-import com.maryanto.dimas.example.entity.Employee;
-import com.maryanto.dimas.example.service.EmployeeService;
+import com.maryanto.dimas.webapp.example.entity.Employee;
+import com.maryanto.dimas.webapp.example.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

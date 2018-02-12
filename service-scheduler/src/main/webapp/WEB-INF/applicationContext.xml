@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="com.maryanto.dimas.scheduler.example"/>
+    <context:property-placeholder location="classpath:/jdbc.properties"/>
+    <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="url" value="${oracledb.url}"/>
+        <property name="username" value="${oracledb.username}"/>
+        <property name="password" value="${oracledb.password}"/>
+        <property name="driverClassName" value="${oracledb.driver-class-name}"/>
+    </bean>
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--<bean id="queryComponent" class="org.apache.camel.component.sql.SqlComponent">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <camelContext autoStartup="true" trace="true" xmlns="http://camel.apache.org/schema/spring">
+        <propertyPlaceholder id="placeholder" location="classpath:/query.properties"/>
+        <route id="5-second-timer">
+            <from uri="quartz2://employees/every-second?cron=0+0/1+*+1/1+*+?+*"/>
+            <to uri="bean:employeeService?method=jumlahEmployee"/>
+            <log message="${body}" loggingLevel="ERROR"/>
+        </route>
+    </camelContext>
+</beans>

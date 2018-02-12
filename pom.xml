@@ -12,7 +12,8 @@
 
     <modules>
         <module>web-application</module>
-        <module>service-scheduler</module>
+        <module>scheduler-service</module>
+        <!--<module>service-scheduler</module>-->
     </modules>
 
     <repositories>

@@ -7,6 +7,7 @@ services:
       - "9080:9080"
     volumes:
       - ./web-application/target/webapp-example.war:/config/dropins/webapp-example.war
+      - ./service-scheduler/target/service-example.war:/config/dropins/service-example.war
     depends_on:
       - oracle-db
   oracle-db :

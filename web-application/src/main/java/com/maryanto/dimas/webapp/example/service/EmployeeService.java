@@ -1,7 +1,7 @@
-package com.maryanto.dimas.example.service;
+package com.maryanto.dimas.webapp.example.service;
 
-import com.maryanto.dimas.example.entity.Employee;
-import com.maryanto.dimas.example.repository.EmployeeRepository;
+import com.maryanto.dimas.webapp.example.entity.Employee;
+import com.maryanto.dimas.webapp.example.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

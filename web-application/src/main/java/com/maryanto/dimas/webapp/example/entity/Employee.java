@@ -1,4 +1,4 @@
-package com.maryanto.dimas.example.entity;
+package com.maryanto.dimas.webapp.example.entity;
 
 import java.math.BigDecimal;
 
