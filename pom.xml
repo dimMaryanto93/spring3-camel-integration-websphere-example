@@ -11,6 +11,7 @@
     <name>Spring framework v3.2.18 with camel</name>
 
     <modules>
+        <module>web-application</module>
     </modules>
 
     <repositories>
