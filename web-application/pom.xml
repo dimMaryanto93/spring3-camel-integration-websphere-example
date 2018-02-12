@@ -12,7 +12,7 @@
     <packaging>war</packaging>
 
     <build>
-        <finalName>spring3-example</finalName>
+        <finalName>webapp-example</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

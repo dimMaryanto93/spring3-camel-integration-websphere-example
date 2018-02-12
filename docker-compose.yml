@@ -6,7 +6,7 @@ services:
     ports:
       - "9080:9080"
     volumes:
-      - ./web-application/target/spring3-example.war:/config/dropins/SampleJEE6.war
+      - ./web-application/target/webapp-example.war:/config/dropins/webapp-example.war
     depends_on:
       - oracle-db
   oracle-db :
