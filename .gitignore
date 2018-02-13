@@ -7,3 +7,6 @@
 
 # maven project
 target/
+
+# nodejs package installer
+package-lock.json

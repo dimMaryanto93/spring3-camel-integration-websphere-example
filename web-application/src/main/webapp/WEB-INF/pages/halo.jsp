@@ -12,24 +12,24 @@
     <title>Belajar Spring Web MVC</title>
     <%--javascript--%>
     <script type="application/javascript"
-            src="<c:url value="/webjars/jquery/3.3.1/jquery.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/jquery/dist/jquery.min.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/webjars/moment/2.20.1/min/moment.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/webjars/popper.js/1.13.0/dist/popper.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/moment/min/moment.min.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/webjars/datatables/1.10.16/js/jquery.dataTables.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/popper.js/dist/popper.min.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/webjars/datatables/1.10.16/js/dataTables.bootstrap4.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/datatables.net/js/jquery.dataTables.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/webjars/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></c:url>"></script>
+            src="<c:url value="/node_modules/jquery-serializejson/jquery.serializejson.min.js"></c:url>"></script>
     <%--css--%>
     <link rel="stylesheet"
-          href="<c:url value="/webjars/bootstrap/4.0.0/css/bootstrap.min.css"></c:url>"/>
+          href="<c:url value="/node_modules/bootstrap/dist/css/bootstrap.min.css"></c:url>"/>
     <link rel="stylesheet"
-          href="<c:url value="/webjars/datatables/1.10.16/css/jquery.dataTables.min.css"></c:url>"/>
+          href="<c:url value="/node_modules/datatables.net-dt/css/jquery.dataTables.css"></c:url>"/>
     <link rel="stylesheet"
-          href="<c:url value="/webjars/datatables/1.10.16/css/dataTables.bootstrap4.min.css"></c:url>"/>
+          href="<c:url value="/node_modules/bootbox/bootbox.min.js"></c:url>"/>
 </head>
 <body class="container">
 Halo ${employee.firstName} ${employee.lastName} salarynya adalah ${employee.salary}
