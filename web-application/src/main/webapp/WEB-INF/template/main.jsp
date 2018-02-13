@@ -16,14 +16,14 @@
     <script type="application/javascript"
             src="<c:url value="/node_modules/moment/min/moment.min.js"></c:url>"></script>
     <script type="application/javascript"
-            src="<c:url value="/node_modules/popper.js/dist/popper.min.js"></c:url>"></script>
-    <script type="application/javascript"
             src="<c:url value="/node_modules/datatables.net/js/jquery.dataTables.js"></c:url>"></script>
     <script type="application/javascript"
             src="<c:url value="/node_modules/jquery-serializejson/jquery.serializejson.min.js"></c:url>"></script>
     <%--css--%>
     <link rel="stylesheet"
           href="<c:url value="/node_modules/bootstrap/dist/css/bootstrap.min.css"></c:url>"/>
+    <link rel="stylesheet"
+          href="<c:url value="/node_modules/font-awesome/css/font-awesome.min.css"></c:url>"/>
     <link rel="stylesheet"
           href="<c:url value="/node_modules/datatables.net-dt/css/jquery.dataTables.css"></c:url>"/>
     <link rel="stylesheet"
