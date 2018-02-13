@@ -14,12 +14,17 @@
     <mvc:resources mapping="/images/**" location="/imgs/"/>
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/pages/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
+    </bean>
+    <bean id="jasperResolver" class="org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver">
+        <property name="prefix" value="/WEB-INF/jasper"/>
+        <property name="suffix" value=".jasper"/>
+        <property name="viewNames" value="*report_*"/>
+        <property name="jdbcDataSource" ref="dataSource"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView"/>
+        <property name="order" value="0"/>
     </bean>
     <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="url" value="${oracledb.url}"/>

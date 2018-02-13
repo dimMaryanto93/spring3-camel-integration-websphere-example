@@ -29,7 +29,7 @@
         <slf4j.version>1.7.22</slf4j.version>
         <camel.version>2.17.4</camel.version>
         <apache.commons.version>3.5</apache.commons.version>
-        <jasperreports.version>6.3.1</jasperreports.version>
+        <jasperreports.version>6.5.1</jasperreports.version>
     </properties>
 
     <dependencies>
