@@ -12,7 +12,7 @@
 
     <modules>
         <module>web-application</module>
-        <module>service-loader</module>
+        <module>service-scheduler</module>
     </modules>
 
     <repositories>
