@@ -6,7 +6,7 @@ services:
     ports:
       - "9080:9080"
     volumes:
-      - ./web-application/target/webapp-example.war:/config/dropins/webapp-example.war
+#      - ./web-application/target/webapp-example.war:/config/dropins/webapp-example.war
       - ./service-scheduler/target/service-scheduler.war:/config/dropins/camel-example.war
     depends_on:
       - oracle-db

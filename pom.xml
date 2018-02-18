@@ -30,6 +30,7 @@
         <camel.version>2.17.4</camel.version>
         <apache.commons.version>3.5</apache.commons.version>
         <jasperreports.version>6.5.1</jasperreports.version>
+        <quartz.version>1.8.6</quartz.version>
     </properties>
 
     <dependencies>
