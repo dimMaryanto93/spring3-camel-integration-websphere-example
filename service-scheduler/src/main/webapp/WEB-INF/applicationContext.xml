@@ -27,12 +27,12 @@
     <bean id="queryComponent" class="org.apache.camel.component.sql.SqlComponent">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <bean class="org.apache.camel.component.quartz.QuartzComponent">
+    <bean id="quartzComponent" class="org.apache.camel.component.quartz.QuartzComponent">
         <property name="scheduler" ref="scheduler"/>
     </bean>
     <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="autoStartup" value="false"/>
+        <property name="autoStartup" value="true"/>
         <property name="schedulerContextAsMap">
             <map>
                 <entry key="CamelQuartzCamelContext" value-ref="camelContext"/>
@@ -43,17 +43,20 @@
                 <prop key="org.quartz.scheduler.instanceName">myscheduler</prop>
                 <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
                 <prop key="org.quartz.scheduler.skipUpdateCheck">true</prop>
-                <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</prop>
+                <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.oracle.OracleDelegate
+                </prop>
                 <prop key="org.quartz.jobStore.isClustered">true</prop>
                 <prop key="org.quartz.jobStore.clusterCheckinInterval">5000</prop>
             </props>
         </property>
     </bean>
 
-    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
+    <camelContext autoStartup="true" trace="true" id="camelContext" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="placeholder" location="classpath:/query.properties"/>
-        <packageScan>
-            <package>com.maryanto.dimas.scheduler.example</package>
-        </packageScan>
+        <route id="timer5second">
+            <from uri="quartzComponent://employees/every-second?cron=0/5+*+*+*+*+?"/>
+            <to uri="bean:employeeService?method=messageInfo"/>
+            <log message="${body}" loggingLevel="INFO"/>
+        </route>
     </camelContext>
 </beans>
