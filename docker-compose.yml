@@ -21,5 +21,6 @@ services:
     volumes:
       - oracledb:/u01/app/oracle/oradata
       - ./docker-entrypoint.sh:/unlock-hr.sh
+      - ./service-scheduler/src/main/resources/db/migration/V0_0_1__create_schema_migration.sql:/init-db.sql
 volumes:
   oracledb:

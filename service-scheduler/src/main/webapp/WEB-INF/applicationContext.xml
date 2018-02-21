@@ -32,7 +32,7 @@
     </bean>
     <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="autoStartup" value="true"/>
+        <property name="autoStartup" value="false"/>
         <property name="schedulerContextAsMap">
             <map>
                 <entry key="CamelQuartzCamelContext" value-ref="camelContext"/>
@@ -40,7 +40,7 @@
         </property>
         <property name="quartzProperties">
             <props>
-                <prop key="org.quartz.scheduler.instanceName">myscheduler</prop>
+                <prop key="org.quartz.scheduler.instanceName">comparejsonobject</prop>
                 <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
                 <prop key="org.quartz.scheduler.skipUpdateCheck">true</prop>
                 <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.oracle.OracleDelegate
@@ -53,10 +53,9 @@
 
     <camelContext autoStartup="true" trace="true" id="camelContext" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="placeholder" location="classpath:/query.properties"/>
-        <route id="timer5second">
-            <from uri="quartzComponent://employees/every-second?cron=0/5+*+*+*+*+?"/>
-            <to uri="bean:employeeService?method=messageInfo"/>
-            <log message="${body}" loggingLevel="INFO"/>
+        <route id="clusteredRoute">
+            <from uri="quartzComponent://clustergroup/clusterTimerName?cron=0+0/1+*+1/1+*+?+*"/>
+            <log message="Fired quartz cluster trigger"/>
         </route>
     </camelContext>
 </beans>
