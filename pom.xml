@@ -27,10 +27,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fasterxml.jackson.version>2.8.5</fasterxml.jackson.version>
         <slf4j.version>1.7.22</slf4j.version>
-        <camel.version>2.17.4</camel.version>
+        <camel.version>2.12.0</camel.version>
         <apache.commons.version>3.5</apache.commons.version>
         <jasperreports.version>6.5.1</jasperreports.version>
-        <quartz.version>2.2.1</quartz.version>
+        <quartz.version>1.8.0</quartz.version>
     </properties>
 
     <dependencies>
