@@ -31,7 +31,7 @@
         <property name="scheduler" ref="scheduler"/>
     </bean>
     <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <!--<property name="dataSource" ref="dataSource"/>-->
+        <property name="dataSource" ref="dataSource"/>
         <property name="autoStartup" value="true"/>
         <property name="schedulerContextAsMap">
             <map>
@@ -55,18 +55,10 @@
                 <prop key="org.quartz.jobStore.class">org.quartz.impl.jdbcjobstore.JobStoreTX</prop>
                 <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</prop>
                 <prop key="org.quartz.jobStore.useProperties">false</prop>
-                <prop key="org.quartz.jobStore.dataSource">myDS</prop>
                 <prop key="org.quartz.jobStore.tablePrefix">QRTZ_</prop>
 
                 <prop key="org.quartz.jobStore.isClustered">false</prop>
                 <prop key="org.quartz.jobStore.clusterCheckinInterval">20000</prop>
-
-                <prop key="org.quartz.dataSource.myDS.driver">oracle.jdbc.driver.OracleDriver</prop>
-                <prop key="org.quartz.dataSource.myDS.URL">jdbc:oracle:thin:@oracle-db:1521:XE</prop>
-                <prop key="org.quartz.dataSource.myDS.user">hr</prop>
-                <prop key="org.quartz.dataSource.myDS.password">hr</prop>
-                <prop key="org.quartz.dataSource.myDS.maxConnections">5</prop>
-                <prop key="org.quartz.dataSource.myDS.validationQuery">select 0 from dual</prop>
             </props>
         </property>
     </bean>
@@ -74,7 +66,7 @@
     <camelContext autoStartup="true" trace="true" id="camelContext" xmlns="http://camel.apache.org/schema/spring">
         <propertyPlaceholder id="placeholder" location="classpath:/query.properties"/>
         <route id="clusteredRoute">
-            <from uri="quartzComponent://clustergroup/clusterTimerName?cron=0+0/1+*+1/1+*+?+*"/>
+            <from uri="quartzComponent://schedulerJsonId/mandiriApp?cron=0+0/1+*+1/1+*+?+*"/>
             <log message="Fired quartz cluster trigger"/>
         </route>
     </camelContext>
